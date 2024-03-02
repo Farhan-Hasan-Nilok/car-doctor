@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import { AuthContext } from "../../contexts/AuthProvider";
 import trash from '../../assets/icons/trash.svg'
 import Swal from "sweetalert2";
+import Title from "../../hooks/title";
 const BookingDetails = () => {
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
@@ -82,6 +83,7 @@ const BookingDetails = () => {
     }
     return (
         <div>
+            <Title header="My Bookings" />
             <Header>Booking Details</Header>
             <div className="overflow-x-auto my-10">
                 <table className="table">

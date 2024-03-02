@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../contexts/AuthProvider';
 import trash from '../../assets/icons/trash.svg';
+import Title from '../../hooks/title';
 const AdminBooking = () => {
     const { user } = useContext(AuthContext);
     const [allBookings, setAllBookings] = useState([]);
@@ -97,6 +98,7 @@ const AdminBooking = () => {
     const whenCanceled = ['Pending', 'Approved'];
     return (
         <div>
+        <Title header='Admin All Booking'/>
             <Header>Admin All Booking</Header>
             <div className="overflow-x-auto my-10">
                 <table className="table">
@@ -125,7 +127,7 @@ const AdminBooking = () => {
                                     <td>{booking.date}</td>
                                     <td>
                                         <select className="select select-bordered w-full max-w-xs" onChange={event => handleStatus(event, booking._id)}>
-                                            <option selected value={booking.status}>{booking.status}</option>
+                                            <option value={booking.status}>{booking.status}</option>
                                             {
                                                 booking.status === 'Pending' && whenPending.map(item => <option key={item} value={item}>{item}</option>)
                                             }
